@@ -106,6 +106,6 @@ export const radarData = [
 
 export const parentCourses = [
   { title: "初中生考试周沟通课", age: "12-15岁", minutes: 18, progress: 72 },
-  { title: "把说教变成倾听", age: "10-14岁", minutes: 22, progress: 36 },
-  { title: "识别孩子的隐性求助", age: "13-17岁", minutes: 16, progress: 0 }
+  { title: "把说教变成倾听：亲子沟通科普", age: "10-14岁", minutes: 22, progress: 36 },
+  { title: "学堂在线资源：积极心理学导读", age: "13-17岁", minutes: 16, progress: 0 }
 ];

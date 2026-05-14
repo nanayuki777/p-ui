@@ -1,4 +1,4 @@
-import { CalendarCheck, HeartHandshake, PlayCircle, RotateCw, UsersRound } from "lucide-react";
+import { BotMessageSquare, CalendarCheck, HeartHandshake, PlayCircle, RotateCw, Send, UsersRound } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { parentCourses } from "@/mock/data";
@@ -17,7 +17,7 @@ export default function ParentHome() {
             {[
               ["本周沟通舒适度", "76", "+6"],
               ["睡眠节律", "稳定", "连续 5 天"],
-              ["陪伴建议", "3 条", "今日更新"]
+              ["陪伴建议", "3 条", "AI 今日更新"]
             ].map(([label, value, sub]) => (
               <Card key={label} className="bg-white p-4">
                 <div className="text-sm font-semibold text-slate-500">{label}</div>
@@ -46,7 +46,7 @@ export default function ParentHome() {
           <div className="mb-5 flex items-center justify-between">
             <div>
               <p className="text-xs font-semibold text-sprout-600">家长智慧课堂</p>
-              <h2 className="text-xl font-black text-ink">按年龄段推荐课程</h2>
+              <h2 className="text-xl font-black text-ink">科普文章与课程资源</h2>
             </div>
             <Button variant="secondary">12-15岁</Button>
           </div>
@@ -58,7 +58,7 @@ export default function ParentHome() {
                 </div>
                 <div>
                   <h3 className="font-black text-ink">{course.title}</h3>
-                  <p className="mt-1 text-sm text-slate-500">{course.age} · {course.minutes} 分钟</p>
+                  <p className="mt-1 text-sm text-slate-500">{course.age} · {course.minutes} 分钟 · 可对接慕课/学堂在线</p>
                   <div className="mt-3 h-2 rounded-full bg-slate-100">
                     <div className="h-full rounded-full bg-sprout-500" style={{ width: `${course.progress}%` }} />
                   </div>
@@ -69,22 +69,41 @@ export default function ParentHome() {
           </div>
         </Card>
 
-        <Card>
-          <p className="text-xs font-semibold text-sprout-600">亲子工具</p>
-          <h2 className="text-xl font-black text-ink">共情卡牌</h2>
-          <div className="mt-5 rounded-3xl bg-gradient-to-br from-sprout-500 to-sprout-700 p-6 text-white shadow-panel">
-            <div className="flex items-center justify-between">
-              <span className="rounded-full bg-white/18 px-3 py-1 text-xs font-bold">翻到一张</span>
-              <RotateCw size={20} />
+        <div className="space-y-5">
+          <Card>
+            <div className="flex items-center gap-3">
+              <span className="grid size-11 place-items-center rounded-2xl bg-sprout-100 text-sprout-700"><BotMessageSquare size={21} /></span>
+              <div>
+                <p className="text-xs font-semibold text-sprout-600">亲子沟通小助手</p>
+                <h2 className="text-xl font-black text-ink">问 AI 怎么开口</h2>
+              </div>
             </div>
-            <h3 className="mt-16 text-2xl font-black">“我想先听你说完。”</h3>
-            <p className="mt-3 text-sm leading-6 text-sprout-50">适合在孩子沉默或顶撞时使用，帮助对话降温。</p>
-          </div>
-          <div className="mt-4 rounded-2xl bg-cream p-4">
-            <div className="flex items-center gap-2 font-black text-ink"><CalendarCheck size={18} /> 1v1 咨询预约</div>
-            <p className="mt-2 text-sm leading-6 text-slate-600">周五 19:30 可预约咨询师：刘静 / 国家二级心理咨询师。</p>
-          </div>
-        </Card>
+            <div className="mt-4 rounded-2xl bg-cream p-4 text-sm leading-6 text-slate-600">
+              孩子说“别管我”，我该怎么回应？
+            </div>
+            <div className="mt-3 rounded-2xl bg-sprout-50 p-4 text-sm leading-6 text-slate-700">
+              可以先把控制感降下来：“好，我先不追问。你需要我在门外等你，还是晚点再聊？”
+            </div>
+            <Button className="mt-4 w-full" icon={<Send size={16} />}>继续提问</Button>
+          </Card>
+
+          <Card>
+            <p className="text-xs font-semibold text-sprout-600">亲子工具</p>
+            <h2 className="text-xl font-black text-ink">共情卡牌</h2>
+            <div className="mt-5 rounded-3xl bg-gradient-to-br from-sprout-500 to-sprout-700 p-6 text-white shadow-panel">
+              <div className="flex items-center justify-between">
+                <span className="rounded-full bg-white/18 px-3 py-1 text-xs font-bold">翻到一张</span>
+                <RotateCw size={20} />
+              </div>
+              <h3 className="mt-16 text-2xl font-black">“我想先听你说完。”</h3>
+              <p className="mt-3 text-sm leading-6 text-sprout-50">适合在孩子沉默或顶撞时使用，帮助对话降温。</p>
+            </div>
+            <div className="mt-4 rounded-2xl bg-cream p-4">
+              <div className="flex items-center gap-2 font-black text-ink"><CalendarCheck size={18} /> 家庭咨询预约</div>
+              <p className="mt-2 text-sm leading-6 text-slate-600">周五 19:30 可预约家庭咨询：刘静 / 国家二级心理咨询师，支持家长与孩子共同参与。</p>
+            </div>
+          </Card>
+        </div>
       </section>
     </div>
   );

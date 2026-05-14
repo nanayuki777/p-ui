@@ -1,4 +1,4 @@
-import { Activity, Clock, Download, GraduationCap, ShieldCheck, Users } from "lucide-react";
+import { Activity, BriefcaseBusiness, Clock, Download, GraduationCap, HandHeart, ShieldCheck, Users } from "lucide-react";
 import {
   CartesianGrid,
   Line,
@@ -23,9 +23,9 @@ export default function SchoolDashboard() {
         <div className="rounded-3xl bg-white/72 p-6 shadow-soft">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <SectionTitle
-              eyebrow="学校 / 教育局管理后台"
+              eyebrow="校企协同管理后台"
               title="心理健康协同守护数据概览"
-              desc="面向政府采购与校级管理场景，聚合测评、干预、转介和服务资源，用数据帮助学校更早发现、更快响应。"
+              desc="面向科教民生赛道，由心芽客平台提供 AI 能力、咨询师资源、科普课程与线下服务，学校和教育局通过采购或公益筛查方式接入。"
             />
             <Button icon={<Download size={16} />}>下载月报</Button>
           </div>
@@ -52,7 +52,7 @@ export default function SchoolDashboard() {
         <Card className="bg-sprout-700 p-6 text-white">
           <p className="text-sm font-semibold text-sprout-100">今日联动状态</p>
           <h2 className="mt-2 text-3xl font-black">12 所学校在线</h2>
-          <p className="mt-3 text-sm leading-6 text-sprout-50">昌平区学校、社区服务站与合作医院已完成今日数据同步，红色工单平均响应时间 26 分钟。</p>
+          <p className="mt-3 text-sm leading-6 text-sprout-50">学校、平台咨询师、社区服务站与合作医院已完成今日数据同步，红色工单平均响应时间 26 分钟。</p>
           <div className="mt-6 grid grid-cols-2 gap-3">
             <div className="rounded-2xl bg-white/14 p-4">
               <div className="text-2xl font-black">98.4%</div>
@@ -64,6 +64,45 @@ export default function SchoolDashboard() {
             </div>
           </div>
         </Card>
+      </section>
+
+      <section className="grid gap-4 lg:grid-cols-3">
+        {[
+          {
+            icon: BriefcaseBusiness,
+            title: "运营主体",
+            value: "平台公司 + 学校采购",
+            desc: "公司负责咨询师招募、督导和课程资源，学校降低自建心理服务团队成本。"
+          },
+          {
+            icon: HandHeart,
+            title: "服务属性",
+            value: "公益筛查 + 增值服务",
+            desc: "基础测评和科普可公益覆盖，家庭咨询、团体课和督导服务按需购买。"
+          },
+          {
+            icon: GraduationCap,
+            title: "面向人群",
+            value: "中小学生优先",
+            desc: "学生端支持校园平板、心理角设备、班会大屏和家长协助访问。"
+          }
+        ].map((item) => {
+          const Icon = item.icon;
+          return (
+            <Card key={item.title} className="bg-white">
+              <div className="flex items-start gap-3">
+                <span className="grid size-11 place-items-center rounded-2xl bg-sprout-100 text-sprout-700">
+                  <Icon size={20} />
+                </span>
+                <div>
+                  <p className="text-xs font-semibold text-sprout-600">{item.title}</p>
+                  <h2 className="mt-1 text-xl font-black text-ink">{item.value}</h2>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{item.desc}</p>
+                </div>
+              </div>
+            </Card>
+          );
+        })}
       </section>
 
       <section className="grid gap-5 xl:grid-cols-[1.25fr_.75fr]">
